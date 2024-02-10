@@ -360,10 +360,17 @@ function selectMany(arr, childrenSelector) {
  *   calculateBalance([ [ 10, 8 ], [ 1, 5 ] ])  => (10 - 8) + (1 - 5) = 2 + -4 = -2
  *   calculateBalance([]) => 0
  */
-function calculateBalance(/* arr */) {
-  throw new Error('Not implemented');
+function calculateBalance(arr) {
+  return arr.reduce((acc, curr) => {
+    return acc + (curr[0] - curr[1]);
+  }, 0);
 }
-
+console.log(
+  calculateBalance([
+    [10, 8],
+    [5, 1],
+  ])
+);
 /**
  * Breaks an array into chunks of the specified size.
  *
