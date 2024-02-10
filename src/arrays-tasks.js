@@ -365,12 +365,7 @@ function calculateBalance(arr) {
     return acc + (curr[0] - curr[1]);
   }, 0);
 }
-console.log(
-  calculateBalance([
-    [10, 8],
-    [5, 1],
-  ])
-);
+
 /**
  * Breaks an array into chunks of the specified size.
  *
@@ -383,8 +378,14 @@ console.log(
  *    createChunks(['a', 'b', 'c', 'd', 'e'], 2) => [['a', 'b'], ['c', 'd'], ['e']]
  *    createChunks([10, 20, 30, 40, 50], 1) => [[10], [20], [30], [40], [50]]
  */
-function createChunks(/* arr, chunkSize */) {
-  throw new Error('Not implemented');
+function createChunks(arr, chunkSize) {
+  if (arr.length <= chunkSize) {
+    return [arr];
+  }
+  return [
+    arr.slice(0, chunkSize),
+    ...createChunks(arr.slice(chunkSize), chunkSize),
+  ];
 }
 
 /**
