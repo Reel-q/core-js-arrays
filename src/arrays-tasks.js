@@ -329,7 +329,7 @@ function flattenArray(nestedArray) {
     return acc.concat(Array.isArray(curr) ? flattenArray(curr) : curr);
   }, []);
 }
-console.log(flattenArray([1, [2, [3, 4], 5], 6]));
+
 /**
  * Projects each element of the specified array to a sequence
  * and flattens the resulting sequences into one array.
@@ -343,8 +343,8 @@ console.log(flattenArray([1, [2, [3, 4], 5], 6]));
  *   selectMany([[1, 2], [3, 4], [5, 6]], (x) => x) =>   [ 1, 2, 3, 4, 5, 6 ]
  *   selectMany(['one','two','three'], (x) => x.split('')) =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  return arr.flatMap(childrenSelector);
 }
 
 /**
